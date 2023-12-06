@@ -1,5 +1,6 @@
 package com.poja.prime.endpoint.rest.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,12 +9,12 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 
 @RestController
-@RequestMapping("/new-prime")
+@CrossOrigin
 public class EvenController {
-    @GetMapping("/")
-    public BigInteger generateNewPrime() {
+    @GetMapping("/new-prime")
+    public String generateNewPrime() {
         BigInteger prime = generatePrime();
-        return prime;
+        return prime.toString();
     }
 
     private BigInteger generatePrime() {
